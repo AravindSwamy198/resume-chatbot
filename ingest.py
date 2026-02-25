@@ -6,7 +6,7 @@ from langchain_community.vectorstores import Chroma
 import os
 import shutil
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "dummy-not-needed-for-deployment"
 
 def ingest():
     loader = PyPDFLoader("resume.pdf")
