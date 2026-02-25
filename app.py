@@ -4,6 +4,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.messages import HumanMessage, SystemMessage
 import os
 import base64
+import time
 
 st.set_page_config(page_title="Chat with Ragavi", page_icon="💼", layout="wide")
 
@@ -202,6 +203,7 @@ if prompt:
     st.chat_message("user").write(prompt)
 
     with st.spinner("Thinking..."):
+        time.sleep(1)
         docs = db.similarity_search(prompt, k=4)
         context = "\n\n".join([doc.page_content for doc in docs])
         response = llm.invoke([
